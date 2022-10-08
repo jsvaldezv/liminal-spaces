@@ -3,12 +3,11 @@ import { nanoid } from "nanoid"
 
 const setLocalStorage = (key, value) => window.localStorage.setItem(key, JSON.stringify(value))
 
-export const useStore = create((set) => ({
-	
-	texture:"dirt",
+export const useStore = create ((set) => ({
+
 	cubes: [{
 		key: nanoid(),
-		pos: [2, 0.5, 0],
+		pos: [1.0, 1.0, 1.0],
 		texture: "glass"
 	}],
 
@@ -25,13 +24,10 @@ export const useStore = create((set) => ({
 		}))
 	},
 
-	removeCube: (x, y, z) => {
-		set((prev) => ({
-			cubes: prev.cubes.filter(cube => {
-				const [X, Y, Z] = cube.pos
-				return X !== x || Y !== y || Z !== z
-			})
-
+	removeCube: (x, y, z, key) => {
+		set ((prev) => ({
+			cubes: prev.cubes.filter (cube => cube.key === key)
+			
 		}))
 	},
 

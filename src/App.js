@@ -11,16 +11,18 @@ function App() {
   return (
     <>
       <Canvas>
+
         <Sky distance={40000} sunPosition={[0.1,-1,0.01]}/>
-        <FPV/>
-        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-        <ambientLight intensity={0.2}/>
-        
+		<FPV/>
+		<Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+		<ambientLight intensity={0.2}/>
+		
         <Physics>
           <Player/>
 		  <Cubes/>
           <Ground /> 
         </Physics>
+
       </Canvas>
     </>
   );

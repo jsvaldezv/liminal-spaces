@@ -1,6 +1,5 @@
-import { usePlane } from "@react-three/cannon"
-import { groundTexture } from "../images/textures"
-import { useStore } from "../hooks/useStore"
+import { usePlane } 		from "@react-three/cannon"
+import { groundTexture } 	from "../images/textures"
  
 export const Ground = () => {
 
@@ -8,11 +7,9 @@ export const Ground = () => {
         rotation: [-Math.PI /2 ,0,0], position: [0,0,0]
     }))
 
-	const [addCube] = useStore((state) => [state.addCube])
+	groundTexture.repeat.set (100,100);
 
-	groundTexture.repeat.set(100,100);
-
-    return(
+    return (
         <mesh ref = {ref}>
             <planeBufferGeometry attach = 'geometry' args = {[100,100]}/>
             <meshStandardMaterial attach = 'material' map={groundTexture}/> 
