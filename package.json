@@ -7,11 +7,14 @@
     "@react-three/cannon": "^3.1.2",
     "@react-three/drei": "^7.12.5",
     "@react-three/fiber": "^7.0.7",
+    "howler": "^2.2.3",
     "nanoid": "^3.1.20",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-howler": "^5.2.0",
     "react-scripts": "4.0.3",
     "three": "^0.132.2",
+    "webmidi": "^3.0.21",
     "zustand": "^3.0.3"
   },
   "scripts": {
@@ -19,8 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-	"predeploy": "npm run build",
-	"deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
