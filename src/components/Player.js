@@ -23,13 +23,23 @@ export const Player = () =>
 
     }, []);
 
-	function sendMIDI()
+	function startAudio() { channelOne.playNote ("C3"); }
+
+	function stopAudio() { channelOne.stopNote ("C3"); }
+
+	function mapValue (x, in_min, in_max, out_min, out_max) 
 	{
-		channelOne.playNote ("C3");
-		console.log ("Send MIDI")
+		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 	}
 
-	async function onEnabled() 
+	function sendMIDI (inDistance)
+	{
+		let newValue = mapValue (inDistance, 0, 40, 20, 120);
+		channelOne.sendControlChange (7, newValue);
+		console.log (newValue);
+	}
+
+	function onEnabled() 
 	{
 		// Inputs
 		WebMidi.inputs.forEach (input => console.log (input.name)); 
@@ -40,6 +50,7 @@ export const Player = () =>
 		channelOne = myOutput.channels[1]
 
 		setMounted (true);
+		startAudio();
 		console.log ("Enabled");
 	}
 
@@ -92,7 +103,7 @@ export const Player = () =>
 	
 			const distance = distance3D([xPlayer, yPlayer, zPlayer], [xCube, yCube, zCube]);
 	
-			sendMIDI();
+			sendMIDI (distance);
 	
 			/*console.log ("Player:", xPlayer, yPlayer, zPlayer)
 			console.log ("Cube:", xCube, yCube, zCube)
@@ -104,6 +115,8 @@ export const Player = () =>
 				addCube (Math.floor(Math.random() * 20),
 						 1,
 						 Math.floor(Math.random() * 20))
+
+				stopAudio();
 			}
 		}
 
