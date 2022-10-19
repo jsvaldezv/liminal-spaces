@@ -48,13 +48,12 @@ export const Start = ({ started, setStarted, gain }) =>
 	};
 
 	useEffect (() => {
-		changeVolume (gain)
-		screamObj.volume = gain;
+		let value = Math.log10 (gain) + 1
+		if (value < 0)
+			screamObj.volume = 0
+		else 
+			screamObj.volume = value
 	}, [gain])
-
-	const changeVolume = () => {
-		console.log ("Start Sound:", gain);
-	}
 
 	return 	(
 		<div className="start" style={{display: started ? "none" : "flex"}}>
