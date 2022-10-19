@@ -49,10 +49,14 @@ export const Start = ({ started, setStarted, gain }) =>
 
 	useEffect (() => {
 		let value = Math.log10 (gain) + 1
-		if (value < 0)
-			screamObj.volume = 0
+
+		if (value < 0.15)
+			screamObj.volume = 0.15
+		else if (value > 1)
+			screamObj.volume = 1
 		else 
-			screamObj.volume = value
+			screamObj.volume = value;
+
 	}, [gain])
 
 	return 	(
