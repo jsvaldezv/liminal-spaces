@@ -1,7 +1,7 @@
 import "./Start.css"
 import { useEffect } 	from "react"
 import rain 			from "../../assets/rainAlone.mp3"
-import scream 			from "../../assets/Maniacal.wav"
+import scream 			from "../../assets/scream_mix.mp3"
 
 let screamObj;
 let rainObj;
