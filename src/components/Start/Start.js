@@ -25,7 +25,7 @@ export const Start = ({ started, setStarted, gain }) =>
 
 		if (inState)
 		{
-			rainObj.volume = 0.2;
+			rainObj.volume = 0.5;
 			rainObj.play();
 			rainObj.loop = true;
 
