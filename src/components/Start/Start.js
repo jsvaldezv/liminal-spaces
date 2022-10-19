@@ -1,10 +1,10 @@
 import "./Start.css"
-import { useEffect, useState } from "react"
-import rain from "../../assets/rainAlone.mp3"
-//import scream from "../../assets/Scream.wav"
-import scream from "../../assets/Maniacal.wav"
+import { useEffect } 	from "react"
+import rain 			from "../../assets/rainAlone.mp3"
+import scream 			from "../../assets/Maniacal.wav"
 
 let screamObj;
+let rainObj;
 
 export const Start = ({ started, setStarted, gain }) => 
 {
@@ -16,23 +16,18 @@ export const Start = ({ started, setStarted, gain }) =>
 		window.addEventListener ('keydown', handleEsc);
 	}, []);
 
-	const handleClick = () => 
-	{
-		setStarted (!started);
-		console.log("Click");
-	}
+	const handleClick = () => { setStarted (!started); }
 
 	const handleAudio = (inState) => 
 	{
-		let audio = document.querySelector(".soundFile");
+		rainObj = document.querySelector(".soundFile");
 		screamObj = document.querySelector(".screamSound");
-		
-		console.log("Handle audio:", inState);
 
 		if (inState)
 		{
-			audio.volume = 0.2;
-			audio.play();
+			rainObj.volume = 0.2;
+			rainObj.play();
+			rainObj.loop = true;
 
 			screamObj.play();
 			screamObj.loop = true;
@@ -40,7 +35,7 @@ export const Start = ({ started, setStarted, gain }) =>
 
 		else
 		{
-			audio.pause();
+			rainObj.pause();
 			screamObj.pause();
 		}
 	}
@@ -49,7 +44,6 @@ export const Start = ({ started, setStarted, gain }) =>
 	{
 		if (event.keyCode === 27){
 			setStarted (false);
-			console.log("Stop")
 		}
 	};
 
