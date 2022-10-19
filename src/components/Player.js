@@ -12,10 +12,10 @@ let channelOne;
 
 export const Player = () => 
 {
-	const [mounted, setMounted] = useState(false);
+	const [mounted, setMounted] = useState(true);
 
 	//*********************************** MIDI *****************************//
-	useLayoutEffect(() => {
+	/*useLayoutEffect(() => {
 
 		WebMidi.enable()
 			.then (onEnabled)
@@ -52,7 +52,7 @@ export const Player = () =>
 		setMounted (true);
 		startAudio();
 		console.log ("Enabled");
-	}
+	}*/
 
 	//***************************** Player movement ***********************/ 
 	const [cubes, removeCube, addCube] = useStore ((state) => [state.cubes, state.removeCube, state.addCube])
@@ -103,7 +103,7 @@ export const Player = () =>
 	
 			const distance = distance3D([xPlayer, yPlayer, zPlayer], [xCube, yCube, zCube]);
 	
-			sendMIDI (distance);
+			//sendMIDI (distance);
 	
 			/*console.log ("Player:", xPlayer, yPlayer, zPlayer)
 			console.log ("Cube:", xCube, yCube, zCube)
@@ -116,7 +116,7 @@ export const Player = () =>
 						 1,
 						 Math.floor(Math.random() * 20))
 
-				stopAudio();
+				//stopAudio();
 			}
 		}
 
