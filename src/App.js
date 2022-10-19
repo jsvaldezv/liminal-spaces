@@ -8,17 +8,16 @@ import { Player } 		from './components/Player';
 import { FPV } 			from './components/FPV';
 import { Cubes } 		from './components/Cubes';
 import { Sound } 		from './components/Sound';
-import { Start }		from "./components/Start"
-import { StaticSound } 	from "./components/StaticSound"
+import { Start }		from "./components/Start/Start"
 
 function App() 
 {
 	const [started, setStarted] = useState (false);
+	const [gain, setGain] = useState (0.0);
 
   	return (
 		<>
-		<Start started = {started} setStarted = {setStarted} />
-		<StaticSound />	
+		<Start started = {started} setStarted = {setStarted} gain = {gain} />
 		<Canvas>
 
 			<Sky distance={40000} sunPosition={[0.1,-1,0.01]}/>
@@ -27,7 +26,7 @@ function App()
 			<ambientLight intensity={0.2}/>	
 
 			<Physics>
-				<Player />
+				<Player started = {started} setGain = {setGain}/>
 				<Cubes />
 				<Ground /> 
 			</Physics>

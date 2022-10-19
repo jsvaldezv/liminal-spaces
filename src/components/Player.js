@@ -1,58 +1,30 @@
+import { useEffect, useRef, useLayoutEffect, useState } from "react"
 import { useFrame, useThree }	from "@react-three/fiber"
 import { useSphere } 			from "@react-three/cannon"
-import { useEffect, useRef, useLayoutEffect, useState } 	from "react"
 import { Vector3 } 				from "three"
 import { useKeyboard } 			from "../hooks/useKeyboard"
 import { useStore } 			from "../hooks/useStore"
-import { WebMidi } from "webmidi";
 
 const JUMP_FORCE = 4 
 const SPEED = 4
 let channelOne;
 
-export const Player = () => 
+export const Player = ( {started, setGain} ) => 
 {
 	const [mounted, setMounted] = useState(true);
 
-	//*********************************** MIDI *****************************//
-	/*useLayoutEffect(() => {
-
-		WebMidi.enable()
-			.then (onEnabled)
-			.catch (err => alert(err));
-
-    }, []);
-
-	function startAudio() { channelOne.playNote ("C3"); }
-
-	function stopAudio() { channelOne.stopNote ("C3"); }
-
+	//*********************************** Utils *****************************//
 	function mapValue (x, in_min, in_max, out_min, out_max) 
 	{
 		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 	}
 
-	function sendMIDI (inDistance)
+	//*********************************** Audio ***************************//
+	const changeVolume = (inDistance) => 
 	{
-		let newValue = mapValue (inDistance, 0, 40, 20, 120);
-		channelOne.sendControlChange (7, newValue);
-		console.log (newValue);
+		let gain = mapValue (inDistance, 0, 40, 0, 1);
+		setGain (gain);
 	}
-
-	function onEnabled() 
-	{
-		// Inputs
-		WebMidi.inputs.forEach (input => console.log (input.name)); 
-		// Outputs
-		WebMidi.outputs.forEach (output => console.log (output.name));
-
-		const myOutput = WebMidi.outputs[0]
-		channelOne = myOutput.channels[1]
-
-		setMounted (true);
-		startAudio();
-		console.log ("Enabled");
-	}*/
 
 	//***************************** Player movement ***********************/ 
 	const [cubes, removeCube, addCube] = useStore ((state) => [state.cubes, state.removeCube, state.addCube])
@@ -104,6 +76,7 @@ export const Player = () =>
 			const distance = distance3D([xPlayer, yPlayer, zPlayer], [xCube, yCube, zCube]);
 	
 			//sendMIDI (distance);
+			changeVolume (distance);
 	
 			/*console.log ("Player:", xPlayer, yPlayer, zPlayer)
 			console.log ("Cube:", xCube, yCube, zCube)
@@ -144,5 +117,9 @@ export const Player = () =>
             api.velocity.set(vel.current[0], JUMP_FORCE,vel.current[2])
     })
 
-    return ( <mesh ref = {ref}></mesh> )
+    return ( 
+		<>
+			<mesh ref = {ref}></mesh> 
+		</>
+	)
 }
