@@ -30,10 +30,10 @@ function App()
 
 			<ambientLight intensity={0.05}/>
 
-			<Shadow	color="black"
+			{/* <Shadow	color="black"
 					colorStop={0.7}
   					opacity={0.5}
-  					fog={true} />	
+  					fog={true} />	 */}
 
 			{/* <Cloud 	opacity={1}
 					speed={0.4} 		// Rotation speed
