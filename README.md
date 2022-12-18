@@ -1,8 +1,15 @@
-# LIMINAL SPACES
+# Liminal spaces
 
-Los espacios liminales son espacios transitorios que transmiten soledad. 
-La instalación virtual aquí presente pretende representar uno de estos espacios visualmente. 
-El objetivo del diseño sonoro es de igual manera representar un espacio abstracto, virtual pero igulamente liminal e inquietante. Parten de sonidos de espacios conocidos a los que acentuamos o removimos elementos que consideramos naturales. 
+### By: 
+* Jesús Valdez
+* Misael Sánchez
+* Marco Santander
+
+https://user-images.githubusercontent.com/47612276/208315748-1bdd4fa6-5778-4d9d-9592-84699441604b.mov
+
+Liminal spaces are transitory spaces that convey loneliness.
+
+The virtual installation presented here aims to represent one of these spaces visually. The objective of sound design is likewise to represent an abstract space, virtual but equally liminal and disturbing. They start from sounds of known spaces to which we accentuate or remove elements that we consider natural.
 
 ## How to run?
 
@@ -11,9 +18,3 @@ El objetivo del diseño sonoro es de igual manera representar un espacio abstrac
 2. If you are using stable node version `export NODE_OPTIONS=--openssl-legacy-provider`
 
 3. `npm start`
-
-## How to deploy?
-
-`npm run deploy`
-
-* Will be deploy here: https://jsvaldezv.github.io/liminal_spaces/
