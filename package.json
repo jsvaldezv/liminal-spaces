@@ -1,7 +1,7 @@
 {
   "name": "liminal-spaces",
   "version": "0.1.0",
-  "homepage": "https://jsvaldezv.github.io/liminal_spaces",
+  "homepage": "https://jsvaldezv.github.io/liminal-spaces",
   "private": true,
   "dependencies": {
     "@react-three/cannon": "^3.1.2",
