@@ -6,7 +6,7 @@ Liminal spaces are transitory spaces that convey loneliness.
 
 The virtual installation presented here aims to represent one of these spaces visually. The objective of sound design is likewise to represent an abstract space, virtual but equally liminal and disturbing. They start from sounds of known spaces to which we accentuate or remove elements that we consider natural.
 
-Demo: https://jsvaldezv.github.io/liminal_spaces/
+Demo: https://jsvaldezv.github.io/liminal-spaces/
 
 ## How to run?
 
